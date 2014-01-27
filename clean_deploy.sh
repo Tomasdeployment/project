@@ -19,8 +19,8 @@ apt-get -q -y install mysql-server mysql-client
 cd /tmp
 mkdir $SANDBOX
 cd $SANDBOX/
-git clone https://github.com/FSlyne/NCIRL.git
-cd NCIRL/
+git clone https://github.com/Tomasdeployment/form
+cd form/
 #
 cp Apache/www/* /var/www/
 cp Apache/cgi-bin/* /usr/lib/cgi-bin/
