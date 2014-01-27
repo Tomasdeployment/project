@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ADMINISTRATOR=tomasmahony@gmail.com MAILSERVER=smtp.gmail.com
+ADMINISTRATOR=tomasmahony@gmail.com MAILSERVER=smtp.gmail.com MAILO2 = smtp.o2.ie
 # Level 1 functions <---------------------------------------
 function isApacheRunning {
         isRunning apache2
@@ -133,7 +133,9 @@ fi
 
 if [ $ERRORCOUNT -gt 0 ]
  then
-         echo "There is a problem " | perl gmail_error.pl $ADMINISTRATOR $MAILSERVER
+         echo "There is a problem. There are $ERRORCOUNT errors " | perl gmail_error.pl $ADMINISTRATOR $MAILSERVER
+        echo "There is a problem. There are $ERRORCOUNT errors " | perl send_email.pl $ADMINISTRATOR $MAILO2 
+
 else 
  echo "no problems" | perl send_gmail.pl $ADMINISTRATOR $MAILSERVER
 fi
