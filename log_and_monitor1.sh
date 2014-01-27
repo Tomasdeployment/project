@@ -1,6 +1,6 @@
 #!/bin/bash
-# fslyne 2013
-ADMINISTRATOR=jbloggs@domain.com MAILSERVER=mail1.eircom.net
+
+ADMINISTRATOR=tomasmahony@gmail.com MAILSERVER=smtp.gmail.com
 # Level 1 functions <---------------------------------------
 function isApacheRunning {
         isRunning apache2
@@ -133,5 +133,7 @@ fi
 
 if [ $ERRORCOUNT -gt 0 ]
  then
-        echo "There is a problem with Apache or Mysql" | perl sendmail.pl $ADMINISTRATOR $MAILSERVER
+         echo "There is a problem " | perl gmail_error.pl $ADMINISTRATOR $MAILSERVER
+else 
+ echo "no problems" | perl send_gmail.pl $ADMINISTRATOR $MAILSERVER
 fi
