@@ -1,12 +1,12 @@
 #!/usr/bin/perl
-# fslyne 2013
+# 
 use Net::SMTP;
 
 my $subj="Mailer message - ".convdatetimenow();
-my $mailserver='mail1.eircom.net';
-my $to=shift @ARGV;
+my $mailserver='smtp.o2.ie';
+my $to= @ARGV[0];
 my $from=$to;
-my $m = shift @ARGV;
+my $m = @ARGV[1];
 $mailserver=($m) ? $m : $mailserver;
 
 # set up access to mailserver
