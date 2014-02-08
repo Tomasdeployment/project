@@ -48,4 +48,5 @@ FINISH
 cd /tmp
 rm -rf $SANDBOX
 
+. /home/testuser/project/bitd.sh
 
