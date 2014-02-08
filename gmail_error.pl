@@ -20,7 +20,7 @@ use strict;
       {   mailer      => 'Gmail',
           mailer_args => [
               username => 'tomasmahony@gmail.com',
-              password => 'sheeba8383',
+              password => 'password',
           ]
       }
   );

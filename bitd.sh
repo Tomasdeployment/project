@@ -1,9 +1,10 @@
 #!/bin/bash
 cd /tmp
-#
+#make sandbox directory and randomise name
 SANDBOX=sandbox_$RANDOM
 mkdir $SANDBOX
 cd $SANDBOX
+# error check is set to 0 
 ERRORCHECK=0
 # Make test webpackage
 mkdir webpackage
@@ -19,7 +20,7 @@ mkdir test
 mkdir deploy
 #
 # Make webpackage and move webpackage
-#
+# tar/sip up webpackage and name it
 tar -zcvf webpackage_preBuild.tgz webpackage
 MD5SUM=$(md5sum webpackage_preBuild.tgz | cut -f 1 -d' ')
 PREVMD5SUM=$(cat /tmp/md5sum)
