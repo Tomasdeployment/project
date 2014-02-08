@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+#a sandbox is created where files are manipulated
 SANDBOX=sandbox_$RANDOM
 echo Using sandbox $SANDBOX
 #
@@ -7,10 +8,10 @@ echo Using sandbox $SANDBOX
 /etc/init.d/mysql stop
 #
 apt-get update
-#
+#target environment is cleaned
 apt-get -q -y remove apache2
 apt-get -q -y install apache2
-#
+#packages are installed
 apt-get -q -y remove mysql-server mysql-client
 echo mysql-server mysql-server/root_password password password | debconf-set-selections
 echo mysql-server mysql-server/root_password_again password password | debconf-set-selections
@@ -19,6 +20,7 @@ apt-get -q -y install mysql-server mysql-client
 cd /tmp
 mkdir $SANDBOX
 cd $SANDBOX/
+#web app is installed
 git clone https://github.com/Tomasdeployment/form
 cd form/
 #
@@ -29,7 +31,7 @@ chmod a+x /usr/lib/cgi-bin/*
 # Start services
 /etc/init.d/apache2 start
 /etc/init.d/mysql start
-#
+#database is configured
 cat <<FINISH | mysql -uroot -ppassword
 drop database if exists dbtest;
 CREATE DATABASE dbtest;
